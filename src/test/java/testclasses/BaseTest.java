@@ -7,12 +7,16 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.BuyOnlinePlan;
+import pages.BuyOnlinePlan2;
 
 public class BaseTest {
 	static WebDriver driver;
+	BuyOnlinePlan buyonline;
 	
 	@BeforeSuite
 	public void initDriver() throws IOException
@@ -34,6 +38,14 @@ public class BaseTest {
 		driver.get(url);
 			
 	}
+	
+	@BeforeClass
+	public void createObjects()
+	{
+		 buyonline = new BuyOnlinePlan(driver);
+	}
+	
+	
 	
 
 }
