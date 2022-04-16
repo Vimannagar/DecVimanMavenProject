@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
@@ -23,9 +24,19 @@ public class BaseTest {
 	{
 		WebDriverManager.chromedriver().setup();
 		
-		 driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
 		
-		driver.manage().window().maximize();
+		options.addArguments("--start-maximized");
+		
+		options.addArguments("--disable-notifications");
+		
+//		options.addArguments("--incognito");
+				
+//		options.addArguments("--headless");
+				
+		 driver = new ChromeDriver(options);
+		
+//		driver.manage().window().maximize();
 		Properties prop = new Properties();
 		
 		String path = System.getProperty("user.dir")+"\\config.properties";
@@ -43,6 +54,8 @@ public class BaseTest {
 	public void createObjects()
 	{
 		 buyonline = new BuyOnlinePlan(driver);
+		 
+		 
 	}
 	
 	

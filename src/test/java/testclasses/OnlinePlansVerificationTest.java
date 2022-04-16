@@ -25,6 +25,8 @@ public class OnlinePlansVerificationTest extends BaseTest {
 		
 		Assert.assertTrue(ispresent);
 		
+		Assert.fail("Deliberately failing the test case");
+		
 		
 	}
 	
