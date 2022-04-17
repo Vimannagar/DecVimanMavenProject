@@ -14,10 +14,14 @@ import org.testng.annotations.BeforeSuite;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.BuyOnlinePlan;
 import pages.BuyOnlinePlan2;
+import pages.GetQuote;
+import pages.HomePage;
 
 public class BaseTest {
 	static WebDriver driver;
 	BuyOnlinePlan buyonline;
+	HomePage hp;
+	GetQuote gq;
 	
 	@BeforeSuite
 	public void initDriver() throws IOException
@@ -51,9 +55,11 @@ public class BaseTest {
 	}
 	
 	@BeforeClass
-	public void createObjects()
+	public void createObjects() throws IOException
 	{
 		 buyonline = new BuyOnlinePlan(driver);
+		 hp = new HomePage(driver);
+		 gq = new GetQuote(driver);
 		 
 		 
 	}

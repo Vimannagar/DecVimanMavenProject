@@ -7,7 +7,8 @@
 </listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="testclasses.OnlinePlansVerificationTest"/>
+      <class name="testclasses.HomeTest"/>
+       <class name="testclasses.GetQuoteTest"/>
     </classes>
   </test> <!-- Test -->
    
