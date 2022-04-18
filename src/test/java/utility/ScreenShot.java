@@ -11,6 +11,25 @@ import org.openqa.selenium.io.FileHandler;
 
 public class ScreenShot {
 	
+	public static String captureScreenShotWithreturnPath(WebDriver driver, String name) throws IOException
+	{
+		TakesScreenshot scrshot = (TakesScreenshot)driver;
+		
+		File source = scrshot.getScreenshotAs(OutputType.FILE);
+		
+		
+//		File destination = new File("E:\\Desktop\\VimanNagar\\Dec 21\\Screenshots\\"+name+".png");
+	
+		String path = System.getProperty("user.dir")+"\\screenshots\\"+name+".png";
+		
+		File destination = new File(path);
+		
+		FileHandler.copy(source, destination);
+		
+		return path;
+	
+		
+	}
 	
 	public static void captureScreenShot(WebDriver driver, String name) throws IOException
 	{

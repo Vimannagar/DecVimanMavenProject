@@ -18,10 +18,10 @@ import pages.GetQuote;
 import pages.HomePage;
 
 public class BaseTest {
-	static WebDriver driver;
-	BuyOnlinePlan buyonline;
-	HomePage hp;
-	GetQuote gq;
+	public static WebDriver driver;
+	public BuyOnlinePlan buyonline;
+public	HomePage hp;
+public	GetQuote gq;
 	
 	@BeforeSuite
 	public void initDriver() throws IOException
