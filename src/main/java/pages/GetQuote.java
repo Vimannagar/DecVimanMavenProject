@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GetQuote extends BaseClass {
 	
@@ -24,6 +26,7 @@ public class GetQuote extends BaseClass {
 	private WebElement getquotebutton;
 	
 
+	WebDriverWait wait;
 	
 	
 	public GetQuote(WebDriver driver) throws IOException
@@ -31,6 +34,8 @@ public class GetQuote extends BaseClass {
 		this.driver = driver;
 
 		PageFactory.initElements(driver, this);
+		
+		wait = new WebDriverWait(driver, 60);
 
 	}
 	
@@ -46,6 +51,7 @@ public class GetQuote extends BaseClass {
 	
 	public void enterData()
 	{
+		wait.until(ExpectedConditions.elementToBeClickable(adultnumber));
 		adultnumber.click();
 		
 		mobilenumber.sendKeys(prop.getProperty("mobilenumber"));
